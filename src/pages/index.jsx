@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router";
 
 import Home from "./Home";
 
+import Cart from "./Cart";
+
 import About from "./About";
 
 // Marketplace
@@ -26,6 +28,8 @@ export default function Pages() {
 
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/marketplace/:id" element={<Product />} />
+
+            <Route path="/cart" element={<Cart />} />
 
             <Route path="/services" element={<Services />}>
                 <Route path="mobile-apps" element={<MobileApps />} />
