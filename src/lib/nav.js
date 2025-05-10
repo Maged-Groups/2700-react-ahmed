@@ -2,32 +2,38 @@ const navLinks = [
     {
         sectionName: 'Home',
         href: '/#company',
-        isBookmark: true
+        isBookmark: true,
+        isPublic: true
     },
     {
         sectionName: 'Marketplace',
         href: '/marketplace',
-        isBookmark: false
+        isBookmark: false,
+        isPublic: false
     },
     {
         sectionName: 'Services',
         href: '/services',
-        isBookmark: false
+        isBookmark: false,
+        isPublic: false
     },
     {
         sectionName: 'team',
         href: '/#team',
-        isBookmark: true
+        isBookmark: true,
+        isPublic: false
     },
     {
         sectionName: 'About',
         href: '/about',
-        isBookmark: false
+        isBookmark: false,
+        isPublic: true
     },
     {
         sectionName: 'contact',
         href: '#contact',
-        isBookmark: true
+        isBookmark: true,
+        isPublic: true
     },
 
 ];

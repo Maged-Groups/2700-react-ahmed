@@ -1,14 +1,31 @@
-import React from 'react'
-import { useState } from 'react'
+import { rdxAddToCart } from "../../redux/cartSlice"
 
-export default function AddToCart() {
-    const [items, setItems] = useState(0);
+import { useDispatch, useSelector } from "react-redux"
+
+export default function AddToCart({ product }) {
+
+
+    const dispatch = useDispatch();
+
+    const { rdxCartItems } = useSelector(store => store.cartSlice)
+
+    const cartItem = rdxCartItems.find(itm => itm.id == product.id)
+
+    // If cartItem is undefined then the value will be 0
+    const itemCount = cartItem?.quantity ?? 0;
+
+    console.log('cartItem', cartItem)
+
+    const handleAddToCart = () => {
+        dispatch(rdxAddToCart(product));
+    }
+
 
     return (
         <div className={styles.container}>
-            <button onClick={() => setItems(items + 1)} className={`${styles.btn} ${styles.btn_add}`}>+</button>
-            <span className={styles.counter}>{items}</span>
-            <button onClick={() => setItems(items + -1)} className={`${styles.btn} ${styles.btn_rem}`}>-</button>
+            <button onClick={handleAddToCart} className={`${styles.btn} ${styles.btn_add}`}>+</button>
+            <span className={styles.counter}>{itemCount}</span>
+            <button className={`${styles.btn} ${styles.btn_rem}`}>-</button>
         </div>
     )
 }

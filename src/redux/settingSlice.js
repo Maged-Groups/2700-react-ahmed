@@ -9,10 +9,12 @@ const settingSlice = createSlice({
     },
     reducers: {
         rdxSetLang: () => { },
-        rdxSetDarkMode: () => { },
+        rdxSetDarkMode: (state) => { state.rdxDark = !state.rdxDark },
         rdxModalVisibility: () => { },
     }
 });
 
 
 export default settingSlice.reducer;
+
+export const { rdxSetDarkMode } = settingSlice.actions;

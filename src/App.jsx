@@ -4,11 +4,14 @@ import Contact from "./layout/Contact"
 import Footer from "./layout/Footer"
 
 import Pages from "./pages"
+import { useSelector } from "react-redux"
 
- export default function App() {
+export default function App() {
+
+  const { rdxDark } = useSelector(store => store.settingSlice)
 
   return (
-    <div>
+    <div className={`${rdxDark ? "dark" : ''}`}>
       <Nav />
 
       <Pages />

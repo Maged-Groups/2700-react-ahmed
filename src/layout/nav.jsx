@@ -6,28 +6,59 @@ import { Link } from "react-router";
 import { FaCartShopping } from "react-icons/fa6";
 
 // Redux
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
+import { rdxLogin, rdxLogout } from "../redux/userSlice";
+import { rdxEmptyCart } from "../redux/cartSlice";
+
+import { FiMoon } from "react-icons/fi";
+import { rdxSetDarkMode } from "../redux/settingSlice";
+import { LuSunMoon } from "react-icons/lu";
 
 
 export default function Nav() {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
 
 
+    const dispatch = useDispatch();
+
     const cartItems = useSelector(store => store.cartSlice.rdxCartItems);
 
     const { rdxUser, rdxLoggedIn } = useSelector(store => store.userSlice)
 
+    const { rdxDark } = useSelector(store => store.settingSlice);
+
+    // itemsCount = count of products quantities
+    const itemsCount = cartItems.reduce((init, itm) => { return init + itm.quantity }, 0);
+
+    // itemsCount = count of products not quantity
+    // const itemsCount = cartItems.length
+
+    const handleLogin = () => {
+        dispatch(rdxLogin());
+    }
+
+    const handleLogout = () => {
+        dispatch(rdxLogout());
+        dispatch(rdxEmptyCart());
+    }
+
 
     return (
-        <nav className="sticky top-0 bg-white shadow z-50 flex flex-col  ">
+        <nav className=" sticky top-0 bg-white shadow z-50 flex flex-col  ">
             {/* Top */}
-            <div className="flex gap-2 items-center justify-end h-20 text-sm">
+            <div className="flex gap-2 items-center justify-end h-20 text-sm dark:bg-gray-600">
                 {/* Icons */}
                 <div className="flex gap-3 items-center">
+                    <span onClick={() => dispatch(rdxSetDarkMode())}>
+                        {
+                            rdxDark ? <LuSunMoon /> : <FiMoon />
+                        }
+                    </span>
+
                     {
                         rdxLoggedIn &&
                         <Link to='/cart' className="relative">
-                            <div className="text-xs absolute left-4 -top-4 rounded-full border w-6 h-6 flex justify-center items-center bg-purple-500 text-purple-50">{cartItems}</div>
+                            <div className="text-xs absolute left-4 -top-4 rounded-full border w-6 h-6 flex justify-center items-center bg-purple-500 text-purple-50">{itemsCount}</div>
                             <FaCartShopping size={30} />
                         </Link>
                     }
@@ -42,11 +73,11 @@ export default function Nav() {
                                     <img src={rdxUser.photo} alt="" className="w-8 h-8 rounded-full" />
                                 </div>
                                 <div>Welcome {rdxUser.firstName}</div>
-                                <button className="text-red-900">Logout</button>
+                                <button onClick={handleLogout} className="text-red-900">Logout</button>
                             </>
                             :
                             <>
-                                <button className="text-gray-900">Log In</button>
+                                <button onClick={handleLogin} className="text-gray-900">Log In</button>
                                 <button className="font-medium text-sm bg-purple-600 text-white p-2 rounded-lg">Register</button>
                             </>
                     }
@@ -69,8 +100,8 @@ export default function Nav() {
 
                 {/* Navlinks */}
                 <ul className="lg:w-8/12 w-5/12 flex gap-3 lg:gap-5 justify-start">
-                    {navLinks.map(({ href, sectionName }) => {
-                        return (
+                    {navLinks.map(({ href, isPublic, sectionName }) => {
+                        return (isPublic || rdxLoggedIn) && (
                             <li key={sectionName} className="text-gray-900 font-medium text-base hidden md:block">
                                 <Link to={href}>{sectionName}</Link>
                             </li>
@@ -92,12 +123,13 @@ export default function Nav() {
                             <br />
                             <br />
                             <ul className=" flex flex-col items-center gap-5">
-                                {navLinks.map(({ href, sectionName }) => {
-                                    return (
-                                        <li key={sectionName} className="text-gray-900 font-medium text-base" onClick={() => setShowMobileMenu(false)}>
-                                            <a href={href}>{sectionName}</a>
-                                        </li>
-                                    )
+                                {navLinks.map(({ href, isPublic, sectionName }) => {
+                                    return (isPublic || rdxLoggedIn) &&
+                                        (
+                                            <li key={sectionName} className="text-gray-900 font-medium text-base" onClick={() => setShowMobileMenu(false)}>
+                                                <Link to={href}>{sectionName}</Link>
+                                            </li>
+                                        )
                                 }
                                 )}
                             </ul>
@@ -112,6 +144,6 @@ export default function Nav() {
             </div>
 
 
-        </nav>
+        </nav >
     )
 }

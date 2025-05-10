@@ -12,4 +12,4 @@ export const ButtonLink = ({ href, text }) => {
     )
 }
 
-const style = 'cursor-pointer hover:bg-amber-300 px-4 py-2'
+const style = 'cursor-pointer hover:bg-amber-300 px-4 py-2 bg-sky-100 text-sky-900 dark:bg-sky-900 dark:text-sky-100 '

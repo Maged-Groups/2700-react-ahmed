@@ -18,7 +18,7 @@ const ProductCard = ({ product }) => {
                 </Link>
 
                 <div className="py-4">
-                    <AddToCart />
+                    <AddToCart product={product} />
                 </div>
             </div>
         </div>
