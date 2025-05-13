@@ -3,6 +3,8 @@ import { FaQuoteLeft } from "react-icons/fa";
 import React from 'react'
 
 const Team = () => {
+        console.log('Team Component rendered')
+
     return (
         <section id='team'>
             <div className="flex flex-col justify-center items-center p-5 lg:p-[96px] gap-5 bg-gray-50">

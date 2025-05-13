@@ -2,6 +2,8 @@ import Container from "../../Container";
 import MainTitle from "../../Titles/MainTitle";
 
 export default function MobileApps() {
+        console.log('MobileApps rendered')
+
     return (
         <Container>
 

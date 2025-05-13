@@ -3,6 +3,8 @@ import { FaCheckCircle } from "react-icons/fa";
 import React from 'react'
 
 const Features = () => {
+        console.log('Features Component rendered')
+
     return (
         <section className='lg:flex grid justify-between w-full items-start lg:px-[80px] md:px-[30px] px-[10px] py-[24px] gap-10 bg-gray-50' id='features'>
             <div>

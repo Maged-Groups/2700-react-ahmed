@@ -5,6 +5,8 @@ import { Link } from "react-router";
 
 
 export default function Prices() {
+        console.log('Prices Component rendered')
+
     return (
         <div className="xl:px-[80px] md:px-[30px] px-[10px] py-[24px]">
             <div className="flex  flex-col justify-center items-center">

@@ -3,14 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 const userSlice = createSlice({
     name: 'userSlice',
     initialState: {
-        rdxUser: {
-            firstName: 'Maged',
-            photo: 'https://assets.about.me/background/users/m/a/g/magedyaseen_1702270532_101.jpg'
-        },
+        rdxUser: null,
         rdxLoggedIn: false
     },
     reducers: {
-        rdxLogin: (state) => { state.rdxLoggedIn = true },
+        rdxLogin: (state, action) => {
+            state.rdxLoggedIn = true;
+            state.rdxUser = action.payload;
+        },
         rdxLogout: (state) => { state.rdxLoggedIn = false },
         rdxUpdate: () => { },
     }

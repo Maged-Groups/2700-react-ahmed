@@ -18,16 +18,22 @@ import DesktopApps from "../components/pages/services/DesktopApps";
 import DigitalMarketing from "../components/pages/services/DigitalMarketing";
 
 import P404 from "./P404";
+import Categories from "./Categories";
+import LoginForm from "./LoginForm";
 
 export default function Pages() {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
 
+            <Route path="/login" element={<LoginForm />} />
+
             <Route path="/about" element={<About />} />
 
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/marketplace/:id" element={<Product />} />
+
+            <Route path="/categories/:slug" element={<Categories />} />
 
             <Route path="/cart" element={<Cart />} />
 

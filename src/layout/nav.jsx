@@ -33,9 +33,7 @@ export default function Nav() {
     // itemsCount = count of products not quantity
     // const itemsCount = cartItems.length
 
-    const handleLogin = () => {
-        dispatch(rdxLogin());
-    }
+   
 
     const handleLogout = () => {
         dispatch(rdxLogout());
@@ -70,14 +68,14 @@ export default function Nav() {
                         rdxLoggedIn ?
                             <>
                                 <div>
-                                    <img src={rdxUser.photo} alt="" className="w-8 h-8 rounded-full" />
+                                    <img src={rdxUser.image} alt="" className="w-8 h-8 rounded-full" />
                                 </div>
                                 <div>Welcome {rdxUser.firstName}</div>
                                 <button onClick={handleLogout} className="text-red-900">Logout</button>
                             </>
                             :
                             <>
-                                <button onClick={handleLogin} className="text-gray-900">Log In</button>
+                                <Link to='/login' className="text-gray-900">Log In</Link>
                                 <button className="font-medium text-sm bg-purple-600 text-white p-2 rounded-lg">Register</button>
                             </>
                     }
@@ -134,10 +132,7 @@ export default function Nav() {
                                 )}
                             </ul>
                             <br />
-                            <div className="w-12/12 flex justify-center gap-3">
-                                <button className="font-medium text-sm w-5/12 bg-purple-600 text-white p-2 rounded-lg">Log In</button>
-                                <button className="font-medium text-sm w-5/12 bg-purple-600 text-white p-2 rounded-lg">Get Started</button>
-                            </div>
+                            
                         </nav>
                     </div>
                 }

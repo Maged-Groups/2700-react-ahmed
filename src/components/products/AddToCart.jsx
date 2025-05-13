@@ -2,8 +2,9 @@ import { rdxAddToCart } from "../../redux/cartSlice"
 
 import { useDispatch, useSelector } from "react-redux"
 
-export default function AddToCart({ product }) {
+function AddToCart({ product }) {
 
+    console.log('AddToCart component rendered')
 
     const dispatch = useDispatch();
 
@@ -19,7 +20,6 @@ export default function AddToCart({ product }) {
     const handleAddToCart = () => {
         dispatch(rdxAddToCart(product));
     }
-
 
     return (
         <div className={styles.container}>
@@ -37,3 +37,5 @@ const styles = {
     btn_rem: 'bg-red-700',
     counter: 'flex-1x text-center'
 }
+
+export default AddToCart

@@ -4,6 +4,8 @@ import { MdOutlineArrowRightAlt } from "react-icons/md";
 import React from 'react'
 
 const MarketPlace = () => {
+        console.log('MarketPlace Component rendered')
+
     return (
         <section id='marketplace' className='lg:px-[80px] md:px-[30px] px-[10px] py-20'>
             <div className="md:flex grid justify-between gap-10">

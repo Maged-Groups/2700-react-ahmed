@@ -1,6 +1,6 @@
-import React from 'react'
-
+ 
 const Company = () => {
+    console.log('Company Component rendered')
     return (
         <section className='md:flex grid justify-between lg:px-[80px] md:px-[30px] px-[10px]' id='company'>
             <div className='lg:w-6/12 grid pt-10 gap-2'>
@@ -18,4 +18,4 @@ const Company = () => {
     )
 }
 
-export default Company
+export default  Company

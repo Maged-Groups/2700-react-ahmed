@@ -2,12 +2,14 @@ import Container from "../../Container";
 import MainTitle from "../../Titles/MainTitle";
 
 export default function WebApps() {
+    console.log('WebApps rendered')
+
     return (
         <Container>
             <MainTitle title='WebApps' icon='BsAwardFill' />
             <p>Our WebApps is lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quo explicabo distinctio, velit quasi consequuntur? Atque sit eum porro dolorem, quos dolor tempora aspernatur praesentium sed nobis facere rerum perspiciatis.</p>
 
-            
+
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi officiis cumque tempore unde soluta voluptates natus reprehenderit velit, quibusdam voluptatibus sint assumenda ut modi! Repudiandae consectetur ducimus nulla voluptate animi.</p>
             <p>Earum, quo. Deserunt ea non doloremque odit quae! Tempora neque optio maiores ipsum ex, quisquam saepe unde dolores illo similique possimus doloremque expedita, est nesciunt dicta debitis? Magnam, esse culpa?</p>
             <p>Praesentium, reiciendis sapiente? Inventore recusandae officiis saepe sapiente facilis vitae quam tempora aperiam, molestiae, adipisci voluptatem laboriosam quidem incidunt aliquam itaque ipsam atque sit, distinctio eum explicabo deleniti id. Aperiam.</p>

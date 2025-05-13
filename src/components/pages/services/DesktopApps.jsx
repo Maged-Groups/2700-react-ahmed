@@ -2,6 +2,8 @@ import Container from "../../Container";
 import MainTitle from "../../Titles/MainTitle";
 
 export default function DesktopApps() {
+        console.log('DesktopApps rendered')
+
     return (
         <Container>
             <MainTitle title='DesktopApps' icon='BsEyeglasses' />

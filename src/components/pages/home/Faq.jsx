@@ -2,6 +2,8 @@ import { FaChevronUp } from "react-icons/fa";
  
 
 const Faq = () => {
+        console.log('Faq Component rendered')
+
     const openAccordion1 = () => {
         document.querySelector('#opening1').classList.toggle('hidden');
         document.querySelector('#icon1').classList.toggle('rotate-180')

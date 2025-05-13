@@ -2,6 +2,8 @@ import Container from "../../Container";
 import MainTitle from "../../Titles/MainTitle";
 
 export default function DigitalMarketing() {
+    console.log('DigitalMarketing rendered')
+
     return (
         <Container>
             <MainTitle title='DigitalMarketing' icon='BsEyeglasses' />
@@ -16,7 +18,7 @@ export default function DigitalMarketing() {
             <p>Nemo amet aperiam illum pariatur sequi odio consectetur doloremque possimus itaque provident vel corporis nisi tempora, dolorem unde esse eum vitae optio hic corrupti cumque! Atque qui vero voluptate dolorum!</p>
             <p>Numquam dicta fugiat eos distinctio dolore exercitationem ea, sit dignissimos iste beatae debitis, laborum quam rem accusantium omnis in necessitatibus! Totam iure sapiente iusto corrupti sit sunt. Rem, est exercitationem!</p>
             <p>Qui, non voluptate facilis architecto rerum possimus delectus nam in perferendis ea soluta deleniti expedita porro commodi veniam, ipsum doloribus illum vel ad? Alias maxime officiis illum esse sapiente obcaecati.</p>
-   
-   </Container>
+
+        </Container>
     )
 }

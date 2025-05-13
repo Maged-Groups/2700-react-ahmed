@@ -3,6 +3,7 @@ import Rating from "../Rating";
 import AddToCart from "./AddToCart";
 
 const ProductCard = ({ product }) => {
+    console.log('ProductCard component rendered')
     return (
         <div>
 
